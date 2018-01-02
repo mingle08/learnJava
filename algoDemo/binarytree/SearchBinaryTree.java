@@ -1,6 +1,6 @@
-
+ï»¿
 /**
- * ²éÕÒ¶ş²æÊ÷
+ * æŸ¥æ‰¾äºŒå‰æ ‘
  * @author huxm
  *
  */
@@ -13,23 +13,23 @@ public class SearchBinaryTree {
 	}
 	
 	/**
-	 * ´´½¨²éÕÒ¶ş²æÊ÷
+	 * åˆ›å»ºæŸ¥æ‰¾äºŒå‰æ ‘
 	 * @author huxm
 	 *
 	 */
 	public TreeNode put(int data) {
 		TreeNode node = null;
 		TreeNode parent = null;
-		// Èç¹ûÊ÷ÊÇ¿ÕµÄ,Ôò°Ñ´ËÊı×Ö¹¹½¨³ÉÒ»¸ö½Úµã£¬×÷Îª¸ù
+		// å¦‚æœæ ‘æ˜¯ç©ºçš„,åˆ™æŠŠæ­¤æ•°å­—æ„å»ºæˆä¸€ä¸ªèŠ‚ç‚¹ï¼Œä½œä¸ºæ ¹
 		if(root == null) {
 			node = new TreeNode(0,data);
 			root = node;
 			return root;
 		}
-		// ½«¸ù½Úµã¸³Öµ¸ønode£¬´Ó¸ù¿ªÊ¼ÅĞ¶Ï
+		// å°†æ ¹èŠ‚ç‚¹èµ‹å€¼ç»™nodeï¼Œä»æ ¹å¼€å§‹åˆ¤æ–­
 		node = root;
 		while(node != null) {
-			// ¸¸½Úµã
+			// çˆ¶èŠ‚ç‚¹
 			parent = node;
 			if(data > node.data) {
 				node = node.rightChild;
@@ -39,7 +39,7 @@ public class SearchBinaryTree {
 				return node;
 			}
 		}
-		// ±íÊ¾½«´Ë½áµãÌí¼Óµ½ÏàÓ¦µÄÎ»ÖÃ
+		// è¡¨ç¤ºå°†æ­¤ç»“ç‚¹æ·»åŠ åˆ°ç›¸åº”çš„ä½ç½®
 		node = new TreeNode(0, data);
 		if(data < parent.data) {
 			parent.leftChild = node;
@@ -51,20 +51,20 @@ public class SearchBinaryTree {
 	}
 	
 	/**
-	 * É¾³ı½Úµã
+	 * åˆ é™¤èŠ‚ç‚¹
 	 */
 	public void deleteNode(int key) throws Exception {
 		TreeNode node = searchNode(key);
 		if(node == null) {
-			throw new Exception("¸Ã½áµãÎŞ·¨ÕÒµ½£¡");
+			throw new Exception("è¯¥ç»“ç‚¹æ— æ³•æ‰¾åˆ°ï¼");
 		}else {
-			// É¾³ı¸Ã½áµã
+			// åˆ é™¤è¯¥ç»“ç‚¹
 			delete(node);
 		}
 	}
 	
 	/**
-	 * ²éÕÒ½Úµã
+	 * æŸ¥æ‰¾èŠ‚ç‚¹
 	 */
 	private TreeNode searchNode(int key) {
 		TreeNode node = root;
@@ -79,16 +79,16 @@ public class SearchBinaryTree {
 				}
 			}
 		}
-		// ÄÜÖ±µ½ÕâÒ»²½£¬ËµÃ÷ÕÒµ½ÁË£¬»òÕßÃ»ÕÒµ½£¨Ã»ÕÒµ½¾ÍÎª¿Õ£¬¼´nodeÖµÎª¿Õ£©
+		// èƒ½ç›´åˆ°è¿™ä¸€æ­¥ï¼Œè¯´æ˜æ‰¾åˆ°äº†ï¼Œæˆ–è€…æ²¡æ‰¾åˆ°ï¼ˆæ²¡æ‰¾åˆ°å°±ä¸ºç©ºï¼Œå³nodeå€¼ä¸ºç©ºï¼‰
 		return node;
 	}
 	
 	private void delete(TreeNode node) throws Exception {
 		if(node == null) {
-			throw new Exception("¸Ã½áµãÎŞ·¨ÕÒµ½£¡");
+			throw new Exception("è¯¥ç»“ç‚¹æ— æ³•æ‰¾åˆ°ï¼");
 		}
 		TreeNode parent = node.parent;
-		// ±»É¾³ıµÄ½ÚµãÊÇÒ¶×Ó½Úµã£ºÎŞ×óÒ²ÎŞÓÒº¢×Ó
+		// è¢«åˆ é™¤çš„èŠ‚ç‚¹æ˜¯å¶å­èŠ‚ç‚¹ï¼šæ— å·¦ä¹Ÿæ— å³å­©å­
 		if(node.leftChild == null && node.rightChild == null) {
 			if(parent.leftChild == node) {
 				parent.leftChild = null;
@@ -98,7 +98,7 @@ public class SearchBinaryTree {
 			return;
 		}
 		
-		// ±»É¾³ıµÄ½ÚµãÖ»ÓĞ×óº¢×Ó£¬ÎŞÓÒ
+		// è¢«åˆ é™¤çš„èŠ‚ç‚¹åªæœ‰å·¦å­©å­ï¼Œæ— å³
 		if(node.leftChild != null && node.rightChild == null) {
 			if(parent.leftChild == node) {
 				parent.leftChild = node.leftChild;
@@ -108,7 +108,7 @@ public class SearchBinaryTree {
 			return;
 		}
 		
-		// ±»É¾³ıµÄ½ÚµãÖ»ÓĞÓÒº¢×Ó£¬ÎŞ×ó
+		// è¢«åˆ é™¤çš„èŠ‚ç‚¹åªæœ‰å³å­©å­ï¼Œæ— å·¦
 		if(node.leftChild == null && node.rightChild != null) {
 			if(parent.leftChild == node) {
 				parent.leftChild = node.rightChild;
@@ -119,8 +119,8 @@ public class SearchBinaryTree {
 		}
 		
 		/**
-		 * ±»É¾³ıµÄ½Úµã£¬¼ÈÓĞ×ó£¬ÓÖÓĞÓÒº¢×Ó£ºÕÒµ½ºó¼Ì½áµã
-		 * Õâ¸öºó¼Ì½áµã£¬Ò»¶¨ÊÇÒ¶×Ó½Úµã
+		 * è¢«åˆ é™¤çš„èŠ‚ç‚¹ï¼Œæ—¢æœ‰å·¦ï¼Œåˆæœ‰å³å­©å­ï¼šæ‰¾åˆ°åç»§ç»“ç‚¹
+		 * è¿™ä¸ªåç»§ç»“ç‚¹ï¼Œä¸€å®šæ˜¯å¶å­èŠ‚ç‚¹
 		 */
 		TreeNode nextNode = getNextNode(node);
 		delete(nextNode);
@@ -132,7 +132,7 @@ public class SearchBinaryTree {
 			return null;
 		}
 		if(node.rightChild != null) {
-			// ÕÒÄ³ÈËÉÏ½áµã×îĞ¡¹Ø¼ü×Ö½áµã
+			// æ‰¾æŸäººä¸Šç»“ç‚¹æœ€å°å…³é”®å­—ç»“ç‚¹
 			return getMinTreeNode(node.rightChild);
 		}else {
 			TreeNode parent = node.parent;
@@ -148,14 +148,14 @@ public class SearchBinaryTree {
 		if(node == null) {
 			return null;
 		}
-		while(node.leftChild != null) { // Èç¹û×óº¢×ÓÎª¿Õ£¬¾ÍÌø³ö´ËÑ­»·
+		while(node.leftChild != null) { // å¦‚æœå·¦å­©å­ä¸ºç©ºï¼Œå°±è·³å‡ºæ­¤å¾ªç¯
 			node = node.leftChild;
 		}
 		return node;
 	}
 	
 	/**
-	 * Ç°Ğò±éÀú
+	 * å‰åºéå†
 	 */
 	public void preOrder(TreeNode node) {
 		if(node == null) {
@@ -167,7 +167,7 @@ public class SearchBinaryTree {
 	}
 
 	/**
-	 * ÖĞĞò±éÀú
+	 * ä¸­åºéå†
 	 */
 	public void midOrder(TreeNode node) {
 		if(node == null) {
@@ -180,7 +180,7 @@ public class SearchBinaryTree {
 	}
 	
 	/**
-	 * ÄÚ²¿Àà£ºTreeNode
+	 * å†…éƒ¨ç±»ï¼šTreeNode
 	 * @author huxm
 	 *
 	 */
@@ -191,7 +191,7 @@ public class SearchBinaryTree {
 		private TreeNode rightChild;
 		private TreeNode parent;
 		
-		// ¹¹Ôìº¯Êı
+		// æ„é€ å‡½æ•°
 		public TreeNode(int key, int data) {
 			super();
 			this.key = key;
@@ -241,7 +241,7 @@ public class SearchBinaryTree {
 		bt.midOrder(bt.root);
 		System.out.println("============");
 //		bt.preOrder(bt.root);
-		// É¾³ıÒ»¸ö½Úµã
+		// åˆ é™¤ä¸€ä¸ªèŠ‚ç‚¹
 		try {
 			bt.deleteNode(44);
 			bt.midOrder(bt.root);
